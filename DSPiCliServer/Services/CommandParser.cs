@@ -1,6 +1,7 @@
 using System.Text;
 using System.Diagnostics;
 using DSPiConsole.Usb;
+using DSPiConsole.Core.Models;
 
 namespace DSPiCliServer.Services;
 
@@ -261,14 +262,23 @@ public static class CommandParser
         }
     }
 
+    /// <summary>
+    /// Retrieves current peak levels, CPU load, and clipping flags from the device.
+    /// The returned string is a hex-encoded byte array with the following format:
+    /// [2 bytes per channel for peaks (ushort, scaled 0-32767)] + 
+    /// [1 byte CPU0 load] + [1 byte CPU1 load] + [2 bytes clip flags (ushort)].
+    /// Peaks and clip flags are in the app's stable channel identity space (0..16).
+    /// </summary>
+    /// <param name="dv">The DeviceManager instance to communicate with.</param>
+    /// <returns>A hex string representing the telemetry data, or an error message.</returns>
     private static string GetPeaks(DeviceManager dv)
     {
         if (!dv.IsConnected) return "Not connected";
         var status = dv.MyDevice.GetStatus();
         if (status == null) return "Error";
 
-        // Packet format: numChannels*2 (peaks) + 2 (CPU) + 2 (Clip)
-        int numCh = dv.MyDevice.NumChannels;
+        // Packet format: AppChannelCount*2 (peaks) + 2 (CPU) + 2 (Clip)
+        int numCh = ChannelMap.AppChannelCount;
         byte[] buffer = new byte[numCh * 2 + 4];
         for (int i = 0; i < numCh; i++)
         {

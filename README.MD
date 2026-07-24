@@ -160,9 +160,13 @@ sudo systemctl start DSPiCliRemote.service
 
 
 ### Changelog
+7/24/26
+1. Update to the latest 1.1.5 beta5 console code
+2. Again remove the .usb bottleneck
+3. Again slow down the timers (*10 delay)
 
 6/16/26
-1. Update to the latest console code to ensure compatability
+1. Update to the latest console code to ensure compatibility
 2. Remove bottleneck with .usb to boost performance
 
 6/9/26
@@ -171,7 +175,7 @@ sudo systemctl start DSPiCliRemote.service
 3. Enable hiding Master volume slider.
 
 6/2/26
-1. Update to the latest console code to ensure compatability
+1. Update to the latest console code to ensure compatibility
 
 05/26/26
 1. Add controls to set loudness amount and leveling compression when the 
