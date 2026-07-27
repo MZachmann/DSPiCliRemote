@@ -1,5 +1,6 @@
 ## DSPi CommandLine Client and Server
-#### version 1
+#### version 1.1.5b6 for Weeb Labs DSPi 1.1.5 beta6
+
 MZachmann
 
 The DSPiCliRemote project contains a server application: DSPiCliServer that is a tiny web page and command line interface (CLI) server intended to work with the [WeebLabs DSPi project](https://github.com/WeebLabs/DSPi).
@@ -63,6 +64,7 @@ then it starts listening and just sits there
   * change the target of the two projects to .NET 8 instead of the framework 8
   * replace the Color definition in DSPiConsole.Core:Channel.cs to use Windows.System.Color instead of Windows.IO.Color
   * Make DSPiConsole.Usb:ControlTransferIn/Out public methods
+  * I set the monitoring timeouts in DspDevice.cs to 5000 and 1000ms instead of 500,100ms to reduce cpu churn
 
 
 ## non-Windows Operating System Installations
