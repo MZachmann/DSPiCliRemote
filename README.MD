@@ -5,7 +5,7 @@ MZachmann
 
 The DSPiCliRemote project contains a server application: DSPiCliServer that is a tiny web page and command line interface (CLI) server intended to work with the [WeebLabs DSPi project](https://github.com/WeebLabs/DSPi).
 
-DSPiCliServer contains a quick gui via web browser, a CLI, and a REST interface. The CLI works with the DSPi Console application to run the console remotely
+DSPiCliServer contains a quick gui via web browser, a CLI, and a REST interface. The CLI works with a [slightly modified DSPi Console application](https://github.com/MZachmann/DSPi-Console-Windows) to run the console remotely
 on a Windows machine while DSPiCliServer is running on whatever is connected to the DSPi Pico USB port.
 
 #### Note: this requires .NET 8.
